@@ -1,68 +1,225 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Install and Run
 
 In the project directory, you can run:
 
-### `yarn start`
+### `1) npm install`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Installs dependencies
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+### `2) npm start`
 
-### `yarn test`
+Launches the app at http://localhost:3000
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `3) node src/Server.js`
 
-### `yarn build`
+Starts a simple node server to proxy requests to BART API.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## `API DOCS`
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+### `/stations`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Returns a list of all the train stations in the BART system.
 
-### `yarn eject`
+JSON Sample
+{
+"?xml":{
+"@version":"1.0",
+"@encoding":"utf-8"
+},
+"root":{
+"@id":"1",
+"uri":{
+"#cdata-section":"http://api.bart.gov/api/etd.aspx?cmd=etd&orig=RICH&json=y"
+},
+"date":"08/14/2017",
+"time":"10:20:31 AM PDT",
+"station":[
+{
+"name":"Richmond",
+"abbr":"RICH",
+"etd":[
+{
+"destination":"Fremont",
+"abbreviation":"FRMT",
+"limited":"0",
+"estimate":[
+{
+"minutes":"1",
+"platform":"2",
+"direction":"South",
+"length":"4",
+"color":"ORANGE",
+"hexcolor":"#ff9933",
+"bikeflag":"1",
+"delay":"238"
+},
+{
+"minutes":"13",
+"platform":"2",
+"direction":"South",
+"length":"4",
+"color":"ORANGE",
+"hexcolor":"#ff9933",
+"bikeflag":"1",
+"delay":"0"
+},
+{
+"minutes":"28",
+"platform":"2",
+"direction":"South",
+"length":"4",
+"color":"ORANGE",
+"hexcolor":"#ff9933",
+"bikeflag":"1",
+"delay":"0"
+}
+]
+},
+{
+"destination":"Millbrae",
+"abbreviation":"MLBR",
+"limited":"0",
+"estimate":[
+{
+"minutes":"6",
+"platform":"2",
+"direction":"South",
+"length":"4",
+"color":"RED",
+"hexcolor":"#ff0000",
+"bikeflag":"1",
+"delay":"0"
+},
+{
+"minutes":"21",
+"platform":"2",
+"direction":"South",
+"length":"5",
+"color":"RED",
+"hexcolor":"#ff0000",
+"bikeflag":"1",
+"delay":"0"
+},
+{
+"minutes":"36",
+"platform":"2",
+"direction":"South",
+"length":"5",
+"color":"RED",
+"hexcolor":"#ff0000",
+"bikeflag":"1",
+"delay":"0"
+}
+]
+}
+]
+}
+],
+"message":""
+}
+}
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### `/departures/${stationId}`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Returns a list of "estimated time of departure" from now, for a given station.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+JSON Sample
+{
+"?xml":{
+"@version":"1.0",
+"@encoding":"utf-8"
+},
+"root":{
+"@id":"1",
+"uri":{
+"#cdata-section":"http://api.bart.gov/api/etd.aspx?cmd=etd&orig=RICH&json=y"
+},
+"date":"08/14/2017",
+"time":"10:20:31 AM PDT",
+"station":[
+{
+"name":"Richmond",
+"abbr":"RICH",
+"etd":[
+{
+"destination":"Fremont",
+"abbreviation":"FRMT",
+"limited":"0",
+"estimate":[
+{
+"minutes":"1",
+"platform":"2",
+"direction":"South",
+"length":"4",
+"color":"ORANGE",
+"hexcolor":"#ff9933",
+"bikeflag":"1",
+"delay":"238"
+},
+{
+"minutes":"13",
+"platform":"2",
+"direction":"South",
+"length":"4",
+"color":"ORANGE",
+"hexcolor":"#ff9933",
+"bikeflag":"1",
+"delay":"0"
+},
+{
+"minutes":"28",
+"platform":"2",
+"direction":"South",
+"length":"4",
+"color":"ORANGE",
+"hexcolor":"#ff9933",
+"bikeflag":"1",
+"delay":"0"
+}
+]
+},
+{
+"destination":"Millbrae",
+"abbreviation":"MLBR",
+"limited":"0",
+"estimate":[
+{
+"minutes":"6",
+"platform":"2",
+"direction":"South",
+"length":"4",
+"color":"RED",
+"hexcolor":"#ff0000",
+"bikeflag":"1",
+"delay":"0"
+},
+{
+"minutes":"21",
+"platform":"2",
+"direction":"South",
+"length":"5",
+"color":"RED",
+"hexcolor":"#ff0000",
+"bikeflag":"1",
+"delay":"0"
+},
+{
+"minutes":"36",
+"platform":"2",
+"direction":"South",
+"length":"5",
+"color":"RED",
+"hexcolor":"#ff0000",
+"bikeflag":"1",
+"delay":"0"
+}
+]
+}
+]
+}
+],
+"message":""
+}
+}
