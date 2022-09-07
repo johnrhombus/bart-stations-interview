@@ -8,13 +8,14 @@ In the project directory, you can run:
 
 Installs dependencies
 
-### `2) node src/Server.js`
+### `2) npm run serve`
 
 
-Starts a simple node server to proxy requests to BART API.
+Starts a simple node server to proxy requests to BART API using the default API Key.
 
+### `3) Open a new terminal tab`
 
-### `3) npm start`
+### `4) npm start`
 
 Launches the app at http://localhost:3000
 
