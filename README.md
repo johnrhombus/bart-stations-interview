@@ -25,6 +25,7 @@ Launches the app at http://localhost:3000
 Returns a list of all the train stations in the BART system.
 
 JSON Sample
+```
 {
 "?xml":{
 "@version":"1.0",
@@ -122,12 +123,13 @@ JSON Sample
 "message":""
 }
 }
-
+```
 ### `/departures/${stationId}`
 
 Returns a list of "estimated time of departure" from now, for a given station.
 
 JSON Sample
+```
 {
 "?xml":{
 "@version":"1.0",
@@ -225,3 +227,4 @@ JSON Sample
 "message":""
 }
 }
+```
