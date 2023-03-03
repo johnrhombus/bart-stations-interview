@@ -1,12 +1,13 @@
+var https = require("https");
 var http = require("http");
-
 const bartAPI = (res, p) => {
   var options = {
+    protocol:"https:",
     host: "api.bart.gov",
     path: p + "&key=MW9S-E7SL-26DU-VV8V&json=y",
   };
-
-  http
+  console.log("Calling api: "+ options.protocol+"//www."+options.host+options.path);
+  https
     .request(options, (response) => {
       var str = "";
       response.on("data", function (chunk) {
@@ -14,7 +15,7 @@ const bartAPI = (res, p) => {
       });
 
       response.on("end", function () {
-        console.log(str);
+        console.log("Server got value" + str);
         res.write(str);
         res.end();
       });
